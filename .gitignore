@@ -53,6 +53,7 @@ out/
 *.png
 *.webp
 !example_face.jpg
+!faces/*.webp
 
 # API keys and secrets
 .env.local
