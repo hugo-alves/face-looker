@@ -74,6 +74,12 @@ function initializeFaceTracker(container) {
 
   function handleTouch(e) {
     if (e.touches && e.touches.length > 0) {
+      // Ignore touches on buttons and controls
+      const target = e.target;
+      if (target && (target.tagName === 'BUTTON' || target.closest('.controls'))) {
+        return;
+      }
+
       e.preventDefault();
       const t = e.touches[0];
       setFromClient(t.clientX, t.clientY);
