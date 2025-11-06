@@ -68,8 +68,9 @@ function initializeFaceTracker(container) {
     setFromClient(e.clientX, e.clientY);
   }
 
-  function handleTouchMove(e) {
+  function handleTouch(e) {
     if (e.touches && e.touches.length > 0) {
+      e.preventDefault();
       const t = e.touches[0];
       setFromClient(t.clientX, t.clientY);
     }
@@ -77,7 +78,8 @@ function initializeFaceTracker(container) {
 
   // Track pointer anywhere on the page
   window.addEventListener('mousemove', handleMouseMove);
-  window.addEventListener('touchmove', handleTouchMove, { passive: true });
+  window.addEventListener('touchstart', handleTouch, { passive: false });
+  window.addEventListener('touchmove', handleTouch, { passive: false });
 
   // Initialize at center
   const rect = container.getBoundingClientRect();

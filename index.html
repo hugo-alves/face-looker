@@ -7,13 +7,29 @@
   <link rel="stylesheet" href="./FaceTracker.css">
   <style>
     html, body { height: 100%; margin: 0; }
-    body { display: flex; align-items: center; justify-content: center; background: #fafafa; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fafafa;
+      touch-action: none;
+      overflow: hidden;
+    }
     .container { width: 360px; height: 360px; }
-    .header { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); font-family: ui-sans-serif, system-ui, Arial, sans-serif; color: #333; }
+    .header {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: ui-sans-serif, system-ui, Arial, sans-serif;
+      color: #333;
+      pointer-events: none;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
-  <div class="header">Move your cursor around the face</div>
+  <div class="header">Move your cursor or tap anywhere</div>
   <div class="container">
     <div class="face-tracker" id="face" data-base-path="faces/" data-debug="false"></div>
   </div>
